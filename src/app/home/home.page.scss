@@ -1,27 +1,35 @@
-#container {
-  text-align: center;
+ion-content {
+  .table-responsive {
+    overflow-x: auto;
+  }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  .nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
 
-  color: #8c8c8c;
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
 
-  margin: 0;
-}
+    tbody tr:hover {
+      background-color: #ddd;
+    }
 
-#container a {
-  text-decoration: none;
+    tfoot {
+      font-weight: bold;
+      background-color: #f9f9f9;
+    }
+  }
 }

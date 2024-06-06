@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\home",
+    "\\src\\app\\saved-data",
+    "\\src\\app\\services",
+    "\\src\\assets",
+    "\\src\\assets\\icon",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\saved-data\\saved-data.page.ts",
+  "PreviewInSolutionExplorer": false
+}

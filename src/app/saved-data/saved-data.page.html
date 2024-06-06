@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Saved Nutrition Data
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="table-responsive">
+    <table class="nutrition-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Calories</th>
+          <th>Protein (g)</th>
+          <th>Carbohydrates (g)</th>
+          <th>Fat (g)</th>
+          <th>Sugar (g)</th>
+          <th>Fiber (g)</th>
+          <th>Sodium (mg)</th>
+          <th>Potassium (mg)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let entry of savedData">
+          <tr class="date-section">
+            <td colspan="10">{{ entry.date }}</td>
+          </tr>
+          <tr *ngFor="let item of entry.items">
+            <td></td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.calories | number: '1.0-0' }}</td>
+            <td>{{ item.protein_g | number: '1.0-1' }}</td>
+            <td>{{ item.carbohydrates_total_g | number: '1.0-1' }}</td>
+            <td>{{ item.fat_total_g | number: '1.0-1' }}</td>
+            <td>{{ item.sugar_g | number: '1.0-1' }}</td>
+            <td>{{ item.fiber_g | number: '1.0-1' }}</td>
+            <td>{{ item.sodium_mg | number: '1.0-0' }}</td>
+            <td>{{ item.potassium_mg | number: '1.0-0' }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Total</th>
+          <th></th>
+
+          <th>{{ getTotal('calories') | number: '1.0-0' }}</th>
+          <th>{{ getTotal('protein_g') | number: '1.0-1' }}</th>
+          <th>{{ getTotal('carbohydrates_total_g') | number: '1.0-1' }}</th>
+          <th>{{ getTotal('fat_total_g') | number: '1.0-1' }}</th>
+          <th>{{ getTotal('sugar_g') | number: '1.0-1' }}</th>
+          <th>{{ getTotal('fiber_g') | number: '1.0-1' }}</th>
+          <th>{{ getTotal('sodium_mg') | number: '1.0-0' }}</th>
+          <th>{{ getTotal('potassium_mg') | number: '1.0-0' }}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <ion-button expand="full" (click)="goBack()">Back to Nutrition Info</ion-button>
+</ion-content>

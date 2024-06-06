@@ -1,0 +1,44 @@
+.date-section {
+  background-color: #2ecc71; // Zielony kolor tła dla sekcji daty
+  color: white; // Biały kolor tekstu dla sekcji daty
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.nutrition-table th, .nutrition-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.nutrition-table th {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.nutrition-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.nutrition-table tr:hover {
+  background-color: #e9e9e9;
+}
+
+tfoot th {
+  background-color: #e2e2e2;
+  font-weight: bold;
+}
+
+ion-button {
+  border-radius: 20px; // Zaokrąglenie przycisku
+}

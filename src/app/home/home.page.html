@@ -1,20 +1,77 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Nutrition Info
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/saved-data">View Saved Data</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Enter food items</ion-label>
+    <ion-input [(ngModel)]="query"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="getNutrition()">Get Nutrition Info</ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-label position="floating">Enter Date</ion-label>
+    <ion-input [(ngModel)]="date" type="date"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="saveData()">Save Data</ion-button>
+  <ion-button expand="full" (click)="loadData()">Load Data</ion-button>
+  <ion-button expand="full" color="danger" (click)="deleteData()">Delete Data</ion-button>
+
+  <ion-card *ngIf="nutritionData">
+    <ion-card-header>
+      <ion-card-title>Nutrition Details</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="table-responsive">
+        <table class="nutrition-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Calories</th>
+              <th>Protein (g)</th>
+              <th>Carbohydrates (g)</th>
+              <th>Fat (g)</th>
+              <th>Sugar (g)</th>
+              <th>Fiber (g)</th>
+              <th>Sodium (mg)</th>
+              <th>Potassium (mg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of nutritionData">
+              <td>{{ item.name }}</td>
+              <td>{{ item.calories }}</td>
+              <td>{{ item.protein_g }}</td>
+              <td>{{ item.carbohydrates_total_g }}</td>
+              <td>{{ item.fat_total_g }}</td>
+              <td>{{ item.sugar_g }}</td>
+              <td>{{ item.fiber_g }}</td>
+              <td>{{ item.sodium_mg }}</td>
+              <td>{{ item.potassium_mg }}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th>{{ getTotal('calories') }}</th>
+              <th>{{ getTotal('protein_g') }}</th>
+              <th>{{ getTotal('carbohydrates_total_g') }}</th>
+              <th>{{ getTotal('fat_total_g') }}</th>
+              <th>{{ getTotal('sugar_g') }}</th>
+              <th>{{ getTotal('fiber_g') }}</th>
+              <th>{{ getTotal('sodium_mg') }}</th>
+              <th>{{ getTotal('potassium_mg') }}</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
